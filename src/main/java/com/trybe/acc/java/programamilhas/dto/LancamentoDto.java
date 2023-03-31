@@ -1,5 +1,9 @@
 package com.trybe.acc.java.programamilhas.dto;
 
+/**
+ * Classe responsável por representar um lançamento.
+ * 
+ */
 public class LancamentoDto {
 
   private String usuario;

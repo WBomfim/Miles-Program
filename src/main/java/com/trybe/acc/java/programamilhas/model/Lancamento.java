@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Classe responsável por representar um lançamento.
+ * 
+ */
 @Entity
 public class Lancamento {
 

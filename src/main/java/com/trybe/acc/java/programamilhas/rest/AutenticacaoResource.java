@@ -13,6 +13,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * Classe responsável por representar o recurso de autenticação.
+ * 
+ */
 @Path("/autenticacao")
 @ApplicationScoped
 public class AutenticacaoResource {

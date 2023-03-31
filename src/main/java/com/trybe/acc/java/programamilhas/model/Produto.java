@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Classe responsável por representar um produto.
+ * 
+ */
 @Entity
 public class Produto {
 

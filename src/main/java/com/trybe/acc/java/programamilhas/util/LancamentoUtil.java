@@ -8,6 +8,10 @@ import com.trybe.acc.java.programamilhas.model.TipoLancamento;
 import java.time.LocalDate;
 import javax.enterprise.context.ApplicationScoped;
 
+/**
+ * Classe responsável por conter métodos de utilidade para lançamentos.
+ * 
+ */
 @ApplicationScoped
 public class LancamentoUtil {
 

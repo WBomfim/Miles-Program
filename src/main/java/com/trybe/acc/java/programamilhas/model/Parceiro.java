@@ -4,6 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Classe responsável por representar um parceiro.
+ * 
+ */
 @Entity
 public class Parceiro {
 

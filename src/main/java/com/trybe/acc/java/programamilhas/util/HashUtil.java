@@ -5,6 +5,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import javax.enterprise.context.ApplicationScoped;
 
+/**
+ * Classe responsável por representar o utilitário de hash.
+ * 
+ */
 @ApplicationScoped
 public class HashUtil {
 

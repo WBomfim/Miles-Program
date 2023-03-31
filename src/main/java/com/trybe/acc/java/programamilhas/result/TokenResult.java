@@ -1,5 +1,9 @@
 package com.trybe.acc.java.programamilhas.result;
 
+/**
+ * Classe responsável por representar um token.
+ * 
+ */
 public class TokenResult {
 
   private String token;

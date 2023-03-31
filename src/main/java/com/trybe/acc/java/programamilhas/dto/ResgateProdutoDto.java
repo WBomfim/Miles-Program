@@ -1,5 +1,9 @@
 package com.trybe.acc.java.programamilhas.dto;
 
+/**
+ * Classe responsável por representar um resgate de produto.
+ * 
+ */
 public class ResgateProdutoDto {
 
   private Integer idProduto;
