@@ -5,6 +5,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  * Classe responsável pela persistência de {@link Pessoa}.
@@ -29,6 +30,30 @@ public class PessoaDao {
     query.setParameter("login", login);
     query.setParameter("hash", hash);
     return (Pessoa) query.getSingleResult();
+  }
+
+  /**
+   * Método responsável por salva uma pessoa.
+   * 
+   */
+  @Transactional
+  public void salvar(String login, String hash) {
+    Pessoa pessoa = new Pessoa();
+    pessoa.setLogin(login);
+    pessoa.setHash(hash);
+    entityManager.persist(pessoa);
+    return;
+  }
+
+  /**
+   * Método responsável por deletar uma pessoa.
+   * 
+   */
+  @Transactional
+  public void deletar(Long id) {
+    Pessoa pessoa = entityManager.find(Pessoa.class, id);
+    entityManager.remove(pessoa);
+    return;
   }
 
 }

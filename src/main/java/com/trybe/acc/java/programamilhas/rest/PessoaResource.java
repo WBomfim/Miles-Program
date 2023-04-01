@@ -2,6 +2,7 @@ package com.trybe.acc.java.programamilhas.rest;
 
 import com.trybe.acc.java.programamilhas.dto.LoginDto;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
+import com.trybe.acc.java.programamilhas.service.PessoaService;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;

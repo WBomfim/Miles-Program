@@ -17,8 +17,8 @@ import javax.ws.rs.PathParam;
 @ApplicationScoped
 public class TransacaoResource {
 
-  @Inject
-  TransacaoService service;
+  /* @Inject
+  TransacaoService service; */
 
   /* /transacao/resgate-produto:
     post:

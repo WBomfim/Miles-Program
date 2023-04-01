@@ -12,20 +12,9 @@ import javax.ws.rs.Path;
 @ApplicationScoped
 public class EchoResource {
 
-  /* /echo:
-  get:
-    tags:
-    - Echo Resource
-    responses:
-      "200":
-        description: OK
-        content:
-          text/plain:
-            schema:
-              type: string */
   @GET
   public String echo() {
-    return "Welcome to programa-milhas!";
+    return "Olá!";
   }
   
 }

@@ -17,8 +17,8 @@ import javax.ws.rs.PathParam;
 @ApplicationScoped
 public class ContaResources {
 
-  @Inject
-  ContaService service;
+  /* @Inject
+  ContaService service; */
 
   /* /conta/extrato:
     get:

@@ -20,8 +20,8 @@ import javax.ws.rs.PathParam;
 @ApplicationScoped
 public class AdminResource {
 
-  @Inject
-  AdminService service;
+  /* @Inject
+  AdminService service; */
 
   /* /admin/credito:
     post:
