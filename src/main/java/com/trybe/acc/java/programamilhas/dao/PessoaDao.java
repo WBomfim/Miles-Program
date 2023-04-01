@@ -50,7 +50,7 @@ public class PessoaDao {
    * 
    */
   @Transactional
-  public void deletar(Long id) {
+  public void deletar(Integer id) {
     Pessoa pessoa = entityManager.find(Pessoa.class, id);
     entityManager.remove(pessoa);
     return;

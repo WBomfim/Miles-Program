@@ -1,8 +1,11 @@
 package com.trybe.acc.java.programamilhas.rest;
 
 import com.trybe.acc.java.programamilhas.dto.LoginDto;
+import com.trybe.acc.java.programamilhas.exception.AcessoNaoAutorizadoException;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
 import com.trybe.acc.java.programamilhas.service.PessoaService;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -38,8 +41,9 @@ public class PessoaResource {
               schema:
                 $ref: '#/components/schemas/MensagemResult' */
   @POST
-  public MensagemResult addPessoa(LoginDto login) {
-    
+  public MensagemResult addPessoa(LoginDto login)
+      throws InvalidKeySpecException, NoSuchAlgorithmException  {
+    return service.salvar(login);
   }
 
   /* delete:
@@ -58,8 +62,9 @@ public class PessoaResource {
               schema:
                 $ref: '#/components/schemas/MensagemResult' */
   @DELETE
-  public MensagemResult deletePessoa(@PathParam("token") String token) {
-    
+  public MensagemResult deletePessoa(@PathParam("token") String token)
+      throws AcessoNaoAutorizadoException {
+    return service.deletar(token);
   }
   
 }
