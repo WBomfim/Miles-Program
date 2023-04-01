@@ -17,8 +17,8 @@ import javax.ws.rs.Path;
 @ApplicationScoped
 public class DominioResource {
 
-  @Inject
-  DominioService service;
+  /* @Inject
+  DominioService service; */
 
   /* /dominio/parceiro:
     get:
