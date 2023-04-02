@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 /**
  * Classe responsável por expor os serviços de pessoa.
@@ -62,7 +62,7 @@ public class PessoaResource {
               schema:
                 $ref: '#/components/schemas/MensagemResult' */
   @DELETE
-  public MensagemResult deletePessoa(@PathParam("token") String token)
+  public MensagemResult deletePessoa(@QueryParam("token") String token)
       throws AcessoNaoAutorizadoException {
     return service.deletar(token);
   }

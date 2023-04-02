@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 /**
  * Classe responsável por expor os serviços para o administrador.
@@ -50,7 +50,7 @@ public class AdminResource {
                 $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/credito")
-  public MensagemResult adicionaCredito(@PathParam("token") String token, LancamentoDto lancamento)
+  public MensagemResult adicionaCredito(@QueryParam("token") String token, LancamentoDto lancamento)
       throws AcessoNaoAutorizadoException {
     tokenUtil.validarAdmToken(token);
     return adminService.adicionaCredito(lancamento);
@@ -79,7 +79,7 @@ public class AdminResource {
                 $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/resgate")
-  public MensagemResult efetuaResgate(@PathParam("token") String token, LancamentoDto lancamento)
+  public MensagemResult efetuaResgate(@QueryParam("token") String token, LancamentoDto lancamento)
       throws AcessoNaoAutorizadoException {
     tokenUtil.validarAdmToken(token);
     return adminService.efetuaResgate(lancamento);
@@ -109,12 +109,10 @@ public class AdminResource {
    */
   @POST
   @Path("/saldos")
-  public List<SaldoResult> buscaSaldos(@PathParam("token") String token)
+  public List<SaldoResult> buscaSaldos(@QueryParam("token") String token)
       throws AcessoNaoAutorizadoException {
-    /* tokenUtil.validarAdmToken(token);
-    System.out.println("AQUIIIIIIIIIIIIIIIIII"); */
+    tokenUtil.validarAdmToken(token);
     return adminService.buscarSaldos();
-    
   }
 
 }
