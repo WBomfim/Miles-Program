@@ -56,4 +56,14 @@ public class PessoaDao {
     return;
   }
 
+  /**
+   * Método responsável por trazer uma pessoa por nome.
+   * 
+   */
+  public Pessoa buscarPorNome(String nome) {
+    String hql = "from " + Pessoa.class.getSimpleName() + " where nome = :nome";
+    Query query = entityManager.createQuery(hql);
+    query.setParameter("nome", nome);
+    return (Pessoa) query.getSingleResult();
+  }
 }

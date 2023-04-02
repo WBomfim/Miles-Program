@@ -6,10 +6,8 @@ import com.trybe.acc.java.programamilhas.exception.AcessoNaoAutorizadoException;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
 import com.trybe.acc.java.programamilhas.util.HashUtil;
 import com.trybe.acc.java.programamilhas.util.TokenUtil;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
