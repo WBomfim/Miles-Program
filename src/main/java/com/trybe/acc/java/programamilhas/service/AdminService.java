@@ -76,18 +76,7 @@ public class AdminService {
    *
    */
   public List<SaldoResult> buscarSaldos() {
-    List<Object[]> result = adminDao.buscarSaldos();
-
-    List<SaldoResult> results = new ArrayList<SaldoResult>();
-
-    for (Object[] row : result) {
-      Integer userId = (Integer) row[0];
-      String login = (String) row[1];
-      Long saldo = (Long) row[2];
-      results.add(new SaldoResult(userId, login, saldo.intValue()));
-    }
-
-    return results;
+    return adminDao.buscarSaldos();
   }
   
 }
