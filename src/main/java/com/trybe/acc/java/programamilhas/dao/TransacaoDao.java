@@ -25,6 +25,7 @@ public class TransacaoDao {
   public Integer buscaSaldoUsuario(Integer idUsuario) {
     String hql = "SELECT SUM(l.valor) "
         + "FROM Lancamento l WHERE l.usuario.id = :idUsuario";
+
     Long result =  entityManager.createQuery(hql, Long.class)
         .setParameter("idUsuario", idUsuario)
         .getSingleResult();
@@ -38,6 +39,7 @@ public class TransacaoDao {
    */
   public Pessoa buscaUsuarioPorNome(String login) {
     String hql = "SELECT p FROM Pessoa p WHERE p.login = :login";
+
     return entityManager.createQuery(hql, Pessoa.class)
         .setParameter("login", login)
         .getSingleResult();
@@ -49,6 +51,7 @@ public class TransacaoDao {
    */
   public Pessoa buscaUsuarioPorId(Integer idUsuario) {
     String hql = "SELECT p FROM Pessoa p WHERE p.id = :idUsuario";
+
     return entityManager.createQuery(hql, Pessoa.class)
         .setParameter("idUsuario", idUsuario)
         .getSingleResult();
@@ -60,6 +63,7 @@ public class TransacaoDao {
    */
   public Produto buscaProduto(Integer idProduto) {
     String hql = "SELECT p FROM Produto p WHERE p.id = :idProduto";
+    
     return entityManager.createQuery(hql, Produto.class)
         .setParameter("idProduto", idProduto)
         .getSingleResult();
@@ -72,5 +76,6 @@ public class TransacaoDao {
   @Transactional
   public void efetuaTransacao(Lancamento lancamento) {
     entityManager.persist(lancamento);
+    return;
   }
 }

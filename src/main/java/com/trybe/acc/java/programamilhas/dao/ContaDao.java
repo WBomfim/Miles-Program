@@ -23,6 +23,7 @@ public class ContaDao {
    */
   public List<Lancamento> buscaExtrato(Integer idUsuario) {
     String hql = "SELECT l FROM Lancamento l WHERE l.usuario.id = :idUsuario";
+    
     return entityManager.createQuery(hql, Lancamento.class)
         .setParameter("idUsuario", idUsuario)
         .getResultList();

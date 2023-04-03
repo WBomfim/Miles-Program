@@ -43,10 +43,6 @@ public class AdminResource {
     return adminService.efetuaResgate(lancamento);
   }
 
-  /**
-   * Método responsável por buscar os saldos de todos os usuários.
-   * 
-   */
   @POST
   @Path("/saldos")
   public List<SaldoResult> buscaSaldos(@QueryParam("token") String token)

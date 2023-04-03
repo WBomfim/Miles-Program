@@ -25,9 +25,6 @@ public class PessoaDao {
   /**
    * Método responsável pela realização do login.
    * 
-   * <p>
-   * Não delete este método!
-   * </p>
    */
   public Pessoa autenticar(String login, String hash) {
     String hql = "from " + Pessoa.class.getSimpleName() + " where login = :login and hash = :hash";
@@ -69,6 +66,7 @@ public class PessoaDao {
   @Transactional
   public void deletar(Integer id) {
     String hql = "DELETE FROM Lancamento l WHERE l.usuario.id = :id";
+    
     Query query = entityManager.createQuery(hql);
     query.setParameter("id", id);
     query.executeUpdate();
