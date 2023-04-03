@@ -24,10 +24,12 @@ public class TransacaoDao {
    */
   public Integer buscaSaldoUsuario(Integer idUsuario) {
     String hql = "SELECT SUM(l.valor) "
-        + "FROM Lancamento l WHERE l.idUsuario = :idUsuario";
-    return entityManager.createQuery(hql, Integer.class)
+        + "FROM Lancamento l WHERE l.usuario.id = :idUsuario";
+    Long result =  entityManager.createQuery(hql, Long.class)
         .setParameter("idUsuario", idUsuario)
         .getSingleResult();
+
+    return result.intValue();
   }
 
   /**

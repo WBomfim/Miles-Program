@@ -8,6 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 /**
  * Classe responsável pela persistência dos dados para o administrador.
@@ -19,12 +20,16 @@ public class AdminDao {
   @Inject
   EntityManager entityManager;
 
+  @Transactional
   public void adicionaCredito(Lancamento lancamento) {
     entityManager.persist(lancamento);
+    return;
   }
 
+  @Transactional
   public void efetuaResgate(Lancamento lancamento) {
     entityManager.persist(lancamento);
+    return;
   }
 
   /**

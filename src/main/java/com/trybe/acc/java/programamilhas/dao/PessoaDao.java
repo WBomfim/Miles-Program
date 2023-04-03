@@ -83,7 +83,7 @@ public class PessoaDao {
    * 
    */
   public Pessoa buscarPorNome(String nome) {
-    String hql = "from " + Pessoa.class.getSimpleName() + " where nome = :nome";
+    String hql = "FROM " + Pessoa.class.getSimpleName() + " WHERE login = :nome";
     Query query = entityManager.createQuery(hql);
     query.setParameter("nome", nome);
     return (Pessoa) query.getSingleResult();

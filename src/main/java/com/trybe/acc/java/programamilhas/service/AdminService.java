@@ -5,9 +5,11 @@ import com.trybe.acc.java.programamilhas.dao.PessoaDao;
 import com.trybe.acc.java.programamilhas.dto.LancamentoDto;
 import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.model.Pessoa;
+import com.trybe.acc.java.programamilhas.model.TipoLancamento;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import com.trybe.acc.java.programamilhas.util.LancamentoUtil;
+import java.time.LocalDate;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -55,15 +57,17 @@ public class AdminService {
    */
   public MensagemResult efetuaResgate(LancamentoDto lancamentoDto) {
     Pessoa pessoa = pessoaDao.buscarPorNome(lancamentoDto.getUsuario());
+    
+    TipoLancamento tipoLancamento = new TipoLancamento();
+    tipoLancamento.setId(lancamentoDto.getIdTipoLancamento());
+    tipoLancamento.setDescricao(lancamentoDto.getDescricao());
   
-    Lancamento lancamento = lancamentoUtil.criarLancamento(
-        pessoa.getId(),
-        lancamentoDto.getValor() * -1,
-        lancamentoDto.getIdTipoLancamento(),
-        lancamentoDto.getIdParceiro(),
-        lancamentoDto.getDescricao(),
-        null
-    );
+    Lancamento lancamento = new Lancamento();
+    lancamento.setUsuario(pessoa);
+    lancamento.setTipoLancamento(tipoLancamento);
+    lancamento.setValor(lancamentoDto.getValor() * -1);
+    lancamento.setDescricao(lancamentoDto.getDescricao());
+    lancamento.setData(LocalDate.now());
 
     adminDao.efetuaResgate(lancamento);
 
