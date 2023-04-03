@@ -2,12 +2,16 @@ package com.trybe.acc.java.programamilhas.rest;
 
 import com.trybe.acc.java.programamilhas.dto.ResgateProdutoDto;
 import com.trybe.acc.java.programamilhas.dto.TransferenciaDto;
+import com.trybe.acc.java.programamilhas.exception.AcessoNaoAutorizadoException;
+import com.trybe.acc.java.programamilhas.exception.SaldoInsuficienteException;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
+import com.trybe.acc.java.programamilhas.service.TransacaoService;
+import com.trybe.acc.java.programamilhas.util.TokenUtil;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 /**
  * Classe responsável por expor os serviços de transação.
@@ -17,8 +21,11 @@ import javax.ws.rs.PathParam;
 @ApplicationScoped
 public class TransacaoResource {
 
-  /* @Inject
-  TransacaoService service; */
+  @Inject
+  TransacaoService service;
+
+  @Inject
+  TokenUtil tokenUtil;
 
   /* /transacao/resgate-produto:
     post:
@@ -44,9 +51,10 @@ public class TransacaoResource {
   @POST
   @Path("/resgate-produto")
   public MensagemResult resgateProduto(
-      @PathParam("token") String token, ResgateProdutoDto resgate
-  ) {
-    
+      @QueryParam("token") String token, ResgateProdutoDto resgate
+  ) throws AcessoNaoAutorizadoException, SaldoInsuficienteException {
+    Integer idUsuario = tokenUtil.obterIdUsuario(token);
+    return service.resgateProduto(idUsuario, resgate);
   }
 
   /* /transacao/transferencia:
@@ -73,9 +81,10 @@ public class TransacaoResource {
   @POST
   @Path("/transferencia")
   public MensagemResult transferencia(
-      @PathParam("token") String token, TransferenciaDto transferencia
-  ) {
-    
+      @QueryParam("token") String token, TransferenciaDto transferencia
+  ) throws AcessoNaoAutorizadoException, SaldoInsuficienteException {
+    Integer idUsuario = tokenUtil.obterIdUsuario(token);
+    return service.transferencia(idUsuario, transferencia);
   }
   
 }

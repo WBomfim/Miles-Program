@@ -16,11 +16,11 @@ public class ContaService {
   ContaDao contaDao;
 
   public List<Lancamento> buscaExtrato(Integer idUsuario) {
-    contaDao.buscaExtrato(idUsuario);
+    return contaDao.buscaExtrato(idUsuario);
   }
 
   public SaldoResult buscaSaldo(Integer idUsuario) {
-    contaDao.buscaSaldo(idUsuario);
+    return contaDao.buscaSaldo(idUsuario);
   }
   
 }
