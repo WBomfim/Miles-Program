@@ -8,7 +8,6 @@ import com.trybe.acc.java.programamilhas.model.Pessoa;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import com.trybe.acc.java.programamilhas.util.LancamentoUtil;
-import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

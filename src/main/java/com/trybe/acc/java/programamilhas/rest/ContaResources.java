@@ -1,13 +1,16 @@
 package com.trybe.acc.java.programamilhas.rest;
 
+import com.trybe.acc.java.programamilhas.exception.AcessoNaoAutorizadoException;
 import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
+import com.trybe.acc.java.programamilhas.service.ContaService;
+import com.trybe.acc.java.programamilhas.util.TokenUtil;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 
 /**
  * Classe responsável por expor os serviços de conta.
@@ -17,8 +20,11 @@ import javax.ws.rs.PathParam;
 @ApplicationScoped
 public class ContaResources {
 
-  /* @Inject
-  ContaService service; */
+  @Inject
+  ContaService service;
+
+  @Inject
+  TokenUtil tokenUtil;
 
   /* /conta/extrato:
     get:
@@ -40,8 +46,10 @@ public class ContaResources {
                   $ref: '#/components/schemas/Lancamento' */
   @GET
   @Path("/extrato")
-  public List<Lancamento> getExtrato(@PathParam("token") String token) {
-    
+  public List<Lancamento> buscaExtrato(@QueryParam("token") String token)
+      throws AcessoNaoAutorizadoException {
+    Integer idUsuario = tokenUtil.obterIdUsuario(token);
+    return service.buscaExtrato(idUsuario);
   }
 
   /* /conta/saldo:
@@ -62,8 +70,10 @@ public class ContaResources {
                 $ref: '#/components/schemas/SaldoResult' */
   @GET
   @Path("/saldo")
-  public SaldoResult getSaldo(@PathParam("token") String token) {
-    
+  public SaldoResult buscaSaldo(@QueryParam("token") String token)
+      throws AcessoNaoAutorizadoException {
+    Integer idUsuario = tokenUtil.obterIdUsuario(token);
+    return service.buscaSaldo(idUsuario);
   }
   
 }

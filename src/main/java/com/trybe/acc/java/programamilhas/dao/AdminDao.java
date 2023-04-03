@@ -2,7 +2,6 @@ package com.trybe.acc.java.programamilhas.dao;
 
 import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
