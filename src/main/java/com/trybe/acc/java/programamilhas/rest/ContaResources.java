@@ -26,24 +26,6 @@ public class ContaResources {
   @Inject
   TokenUtil tokenUtil;
 
-  /* /conta/extrato:
-    get:
-      tags:
-      - Conta Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Lancamento' */
   @GET
   @Path("/extrato")
   public List<Lancamento> buscaExtrato(@QueryParam("token") String token)
@@ -52,22 +34,6 @@ public class ContaResources {
     return service.buscaExtrato(idUsuario);
   }
 
-  /* /conta/saldo:
-    get:
-      tags:
-      - Conta Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SaldoResult' */
   @GET
   @Path("/saldo")
   public SaldoResult buscaSaldo(@QueryParam("token") String token)

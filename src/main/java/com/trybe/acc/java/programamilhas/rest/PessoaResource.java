@@ -24,43 +24,12 @@ public class PessoaResource {
   @Inject
   PessoaService service;
 
-  /* /pessoa:
-    post:
-      tags:
-      - Pessoa Resource
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LoginDTO'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @POST
   public MensagemResult addPessoa(LoginDto login)
       throws InvalidKeySpecException, NoSuchAlgorithmException  {
     return service.salvar(login);
   }
 
-  /* delete:
-      tags:
-      - Pessoa Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @DELETE
   public MensagemResult deletePessoa(@QueryParam("token") String token)
       throws AcessoNaoAutorizadoException {

@@ -21,57 +21,18 @@ public class DominioResource {
   @Inject
   DominioService service;
 
-  /* /dominio/parceiro:
-    get:
-      tags:
-      - Dominio Resource
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Parceiro' */
   @GET
   @Path("/parceiro")
   public List<Parceiro> getParceiros() {
     return service.getParceiros();
   }
 
-  /* /dominio/produto:
-    get:
-      tags:
-      - Dominio Resource
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Produto' */
   @GET
   @Path("/produto")
   public List<Produto> getProdutos() {
     return service.getProdutos();
   }
 
-  /* /dominio/tipolancamento:
-    get:
-      tags:
-      - Dominio Resource
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TipoLancamento' */
   @GET
   @Path("/tipolancamento")
   public List<TipoLancamento> getTipoLancamentos() {

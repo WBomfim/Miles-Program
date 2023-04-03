@@ -27,27 +27,6 @@ public class AdminResource {
   @Inject
   TokenUtil tokenUtil;
 
-  /* /admin/credito:
-    post:
-      tags:
-      - Admin Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LancamentoDTO'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/credito")
   public MensagemResult adicionaCredito(@QueryParam("token") String token, LancamentoDto lancamento)
@@ -56,27 +35,6 @@ public class AdminResource {
     return adminService.adicionaCredito(lancamento);
   }
 
-  /* /admin/resgate:
-    post:
-      tags:
-      - Admin Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LancamentoDTO'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/resgate")
   public MensagemResult efetuaResgate(@QueryParam("token") String token, LancamentoDto lancamento)
@@ -85,24 +43,6 @@ public class AdminResource {
     return adminService.efetuaResgate(lancamento);
   }
 
-  /* /admin/saldos:
-    post:
-      tags:
-      - Admin Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/SaldoResult' */
   /**
    * Método responsável por buscar os saldos de todos os usuários.
    * 

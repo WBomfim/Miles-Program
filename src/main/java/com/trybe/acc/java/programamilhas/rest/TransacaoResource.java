@@ -27,27 +27,6 @@ public class TransacaoResource {
   @Inject
   TokenUtil tokenUtil;
 
-  /* /transacao/resgate-produto:
-    post:
-      tags:
-      - Transacao Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ResgateProdutoDTO'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/resgate-produto")
   public MensagemResult resgateProduto(
@@ -57,27 +36,6 @@ public class TransacaoResource {
     return service.resgateProduto(idUsuario, resgate);
   }
 
-  /* /transacao/transferencia:
-    post:
-      tags:
-      - Transacao Resource
-      parameters:
-      - name: token
-        in: query
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TransferenciaDTO'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MensagemResult' */
   @POST
   @Path("/transferencia")
   public MensagemResult transferencia(
