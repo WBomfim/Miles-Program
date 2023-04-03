@@ -3,6 +3,7 @@ package com.trybe.acc.java.programamilhas.dao;
 import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -10,6 +11,7 @@ import javax.persistence.EntityManager;
  * Classe responsável pela persistência de conta.
  * 
  */
+@ApplicationScoped
 public class ContaDao {
 
   @Inject

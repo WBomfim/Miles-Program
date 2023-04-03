@@ -4,12 +4,14 @@ import com.trybe.acc.java.programamilhas.dao.ContaDao;
 import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 /**
  * Classe responsável por representar os recursos de conta.
  * 
  */
+@ApplicationScoped
 public class ContaService {
 
   @Inject

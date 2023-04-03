@@ -9,6 +9,7 @@ import com.trybe.acc.java.programamilhas.model.Pessoa;
 import com.trybe.acc.java.programamilhas.model.Produto;
 import com.trybe.acc.java.programamilhas.model.TipoLancamento;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
@@ -16,6 +17,7 @@ import javax.transaction.Transactional;
  * Classe responsável por expor os serviços de transação.
  * 
  */
+@ApplicationScoped
 public class TransacaoService {
 
   @Inject
